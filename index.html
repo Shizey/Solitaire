@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <title>Jeu du solitaire</title>
+</head>
+
+<body>
+  <div id="particles-js"></div>
+  <div class="page-game">
+    <h1 class="title animate__animated animate__jackInTheBox">Solitaire</h1>
+    <div id="game" class="noselect">
+      <div class="top">
+        <div class="line">
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+        </div>
+        <div class="line">
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+        </div>
+        <div class="line">
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+        </div>
+      </div>
+
+      <div class="align">
+
+        <div class="right">
+          <div class="line">
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+          </div>
+          <div class="line">
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+          </div>
+          <div class="line">
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+          </div>
+        </div>
+
+        <div class="mid">
+          <div class="line">
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+          </div>
+          <div class="line">
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+          </div>
+          <div class="line">
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+          </div>
+        </div>
+
+        <div class="left">
+          <div class="line">
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+          </div>
+          <div class="line">
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+          </div>
+          <div class="line">
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+            <div class="p case animate__animated animate__zoomIn"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bot">
+        <div class="line">
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+        </div>
+        <div class="line">
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+        </div>
+        <div class="line">
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+          <div class="p case animate__animated animate__zoomIn"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <p class="replay">RECOMMENCER</p>
+
+  <p id="score" class="score">CLIQUE SUR L'UN DES CARRÉ POUR COMMENCER À JOUER</p>
+  <div class="footer-left">
+    <img alt="github-logo" class="github-logo" src="img/GitHub-Mark-Light-120px-plus.png">
+    <img alt="help" onclick="getHelp()" class="help-logo" src="img/question-mark.svg">
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="src/particles.js"></script>
+  <script src="src/script.js"></script>
+</body>
+
+</html>
