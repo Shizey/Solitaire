@@ -41,8 +41,8 @@ cases.forEach((caseItem, i) => {
   makeActive(i);
 
   caseItem.addEventListener('click', () => {
-    const {upCase, downCase, leftCase, rightCase} = getCases(i);
-    const {UpUpCase, DownDownCase, LeftLeftCase, RightRightCase} = getCasesAfter(i);
+    const { upCase, downCase, leftCase, rightCase } = getCases(i);
+    const { UpUpCase, DownDownCase, LeftLeftCase, RightRightCase } = getCasesAfter(i);
 
     if (!firstClick) {
       firstClick = true;
@@ -55,7 +55,10 @@ cases.forEach((caseItem, i) => {
         score.innerText = `SCORE : ${scoreNum}`;
         if (origins) {
           origins.forEach(origin => {
-            makeCase(origin);
+            if (origin[2] === i) {
+              makeCase(origin[1]);
+              makeCase(origin[0]);
+            }
           });
         }
         cases.forEach((caseItem, i) => {
@@ -76,26 +79,29 @@ cases.forEach((caseItem, i) => {
           }
         });
 
+        origins = [];
+
         if (caseItem.classList.contains('case-active')) makeVeryActive(i);
+        if ((caseItem.classList.contains('case-active') || caseItem.classList.contains('breath'))) {
+          if ((upCase !== false) && cases[upCase].classList.contains('case-active') && (UpUpCase !== false) && cases[UpUpCase].classList.contains('case')) {
+            origins.push([i, upCase, UpUpCase]);
+            makePosable(UpUpCase);
+          }
 
-        if ((caseItem.classList.contains('case-active') || caseItem.classList.contains('breath')) && (upCase !== false) && cases[upCase].classList.contains('case-active') && (UpUpCase !== false) && cases[UpUpCase].classList.contains('case')) {
-          origins = [i, upCase];
-          makePosable(UpUpCase);
-        }
+          if ((downCase !== false) && cases[downCase].classList.contains('case-active') && (DownDownCase !== false) && cases[DownDownCase].classList.contains('case')) {
+            origins.push([i, downCase, DownDownCase]);
+            makePosable(DownDownCase);
+          }
 
-        if ((caseItem.classList.contains('case-active') || caseItem.classList.contains('breath')) && (downCase !== false) && cases[downCase].classList.contains('case-active') && (DownDownCase !== false) && cases[DownDownCase].classList.contains('case')) {
-          origins = [i, downCase];
-          makePosable(DownDownCase);
-        }
+          if ((leftCase !== false) && cases[leftCase].classList.contains('case-active') && (LeftLeftCase !== false) && cases[LeftLeftCase].classList.contains('case')) {
+            origins.push([i, leftCase, LeftLeftCase]);
+            makePosable(LeftLeftCase);
+          }
 
-        if ((caseItem.classList.contains('case-active') || caseItem.classList.contains('breath')) && (leftCase !== false) && cases[leftCase].classList.contains('case-active') && (LeftLeftCase !== false) && cases[LeftLeftCase].classList.contains('case')) {
-          origins = [i, leftCase];
-          makePosable(LeftLeftCase);
-        }
-
-        if ((caseItem.classList.contains('case-active') || caseItem.classList.contains('breath')) && (rightCase !== false) && cases[rightCase].classList.contains('case-active') && (RightRightCase !== false) && cases[RightRightCase].classList.contains('case')) {
-          origins = [i, rightCase];
-          makePosable(RightRightCase);
+          if ((rightCase !== false) && cases[rightCase].classList.contains('case-active') && (RightRightCase !== false) && cases[RightRightCase].classList.contains('case')) {
+            origins.push([i, rightCase, RightRightCase]);
+            makePosable(RightRightCase);
+          }
         }
       }
     }
@@ -177,7 +183,7 @@ function getCases(i) {
 }
 
 function getCasesAfter(i) {
-  const {upCase, downCase, leftCase, rightCase} = getCases(i);
+  const { upCase, downCase, leftCase, rightCase } = getCases(i);
   const UpUpCase = upCase ? getCases(upCase).upCase : false;
   const DownDownCase = downCase ? getCases(downCase).downCase : false;
   const LeftLeftCase = leftCase ? getCases(leftCase).leftCase : false;
